@@ -32,3 +32,23 @@ QueryStiring と呼ばれる?以降の文字列が$_GETにセットされてtphp
 param1=%E3%83%86%E3%82%B9%E3%83%88&_=1626240874763
 ```
 <b>$_GET</b>["param1"]に"テスト"がセットされてスーパーグローバル変数として利用可能となる
+PHP で json 文字列を返す為に、stdClass と言う簡易オブジェクトを作成して利用する
+```javascript
+$json = new stdClass;
+$json->get = $_GET;
+```
+$.ajaxに返す為の json フォーマットの文字列を json_encode 関数で作成する
+```javascript
+print json_encode( $json, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+```
+PHP より返却された json を .doneで data として受け取る
+```javascript
+{
+	"get": {
+		"param1": "テスト",
+		"_": "1626244981881"
+	},
+	"post": [],
+	"session": []
+}
+```
