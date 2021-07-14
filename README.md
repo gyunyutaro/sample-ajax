@@ -7,3 +7,6 @@ ajaxのgetを行うための天ぷら
 formData={};
 ```
 {}は空のjsonオブジェクト
+```javascript
+formData["param1"] = "テスト";
+```
